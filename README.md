@@ -8,8 +8,9 @@ In order to overcome these limitations, we created a comprehensive library of fu
 
 To make the nomenclature of canonical Ty sequences generalizable to multiple species but as compatible as possible with previous work, we add the "p" suffix to all *S. paradoxus* family names. Specific subfamilies are denoted after the "-". Subfamilies in *S. paradoxus* are labelled according to whether they are extracted from host strains from the Old World (ow) or New World (nw).
 
-- The most current updated file of Ty sequences in fasta format can be found here: https://github.com/bergmanlab/yeast-transposons/blob/main/current/ty_elements_from_genome.fasta
-- Annotations in GFF format of LTRs and ORFs for each canonical Ty elements can be found here: https://github.com/bergmanlab/yeast-transposons/blob/main/current/full_length_from_genome.sorted.gff
+- The most recent release of Ty sequences in fasta format can be found here: https://github.com/bergmanlab/yeast-transposons/blob/main/releases/yeast_transposon_sequence_set_v1.0.fa
+- Annotations in GFF format of LTRs and ORFs for each canonical Ty element in the most recent release can be found here: https://github.com/bergmanlab/yeast-transposons/blob/main/releases/yeast_transposon_sequence_set_v1.0.gff
+- A version of the most recent release of Ty elements split into LTR and internal regions in fasta format for use by RTepeatMasker can be found here: https://github.com/bergmanlab/yeast-transposons/blob/main/releases/yeast_transposon_sequence_set_RM_v1.0.fa
 - A visualization of all annotated Ty canonical sequences can be found below and here: https://github.com/bergmanlab/yeast-transposons/blob/main/img/master_lib.pdf
 
 <p align="center">
