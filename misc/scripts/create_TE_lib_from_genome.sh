@@ -11,7 +11,7 @@ split_dir=$run_dir/split_te
 mkdir -p ${full_dir} ${split_dir} ${script_dir}
 
 conda activate create_te_lib
-
+conda-env export -n create_te_lib -f /home/jc33471/jingxuan/data/te_lib/create_te_lib.yml
 ############# Full-length library #############
 cd $full_dir
 
@@ -146,11 +146,11 @@ print_ltr_length(){
     echo $length_5 $length_3
 }
 
-# Ty1-canonical CZA_DBVPG6044_f590+_TY1|CABIKB010000018.1|42993-48917
+# Ty1_canonical CZA_DBVPG6044_f590+_TY1|CABIKB010000018.1|42993-48917
 # modify for each elements
 dataset="czaja";accession="CABIKB010000018.1";
 start=42994;end=48917;strand="+";
-TE="Ty1-canonical";organism="Saccharomyces cerevisiae";strain="DBVPG6044"
+TE="Ty1_canonical";organism="Saccharomyces cerevisiae";strain="DBVPG6044"
 if [[ ${strand} == "+" ]]; then
     esearch -db nucleotide -query ${accession} | efetch -format fasta > ${full_dir}/${accession}.fasta
     seqkit subseq -w 0 --chr ${accession} -r ${start}:${end} ${full_dir}/${accession}.fasta | sed -E "s/>${accession}.*/>${TE}/" > ${full_dir}/${TE}.fasta
@@ -164,11 +164,11 @@ element_id="f590+_TY1"
 grep "${element_id}" ${anno_dir}/${dataset}/${strain}/repeatmasker/${strain}.bed | cut -f11
 print_ltr_length # same
 
-# Ty1-prime CZA_Y12_f294+_TY1|CABIJY010000010.1|606514-612428 # same
+# Ty1_prime CZA_Y12_f294+_TY1|CABIJY010000010.1|606514-612428 # same
 # modify for each elements
 dataset="czaja";accession="CABIJY010000010.1";
 start=606515;end=612428;strand="+";
-TE="Ty1-prime";organism="Saccharomyces cerevisiae";strain="Y12"
+TE="Ty1_prime";organism="Saccharomyces cerevisiae";strain="Y12"
 if [[ ${strand} == "+" ]]; then
     esearch -db nucleotide -query ${accession} | efetch -format fasta > ${full_dir}/${accession}.fasta
     seqkit subseq -w 0 --chr ${accession} -r ${start}:${end} ${full_dir}/${accession}.fasta | sed -E "s/>${accession}.*/>${TE}/" > ${full_dir}/${TE}.fasta
@@ -200,11 +200,11 @@ print_ltr_length
 # grep "${element_id}" ${anno_dir}/${dataset}/${strain}/repeatmasker/${strain}.bed | cut -f11
 # print_ltr_length # same
 
-# Ty1-mosaic CZA_S288c_f87+_TY1|CABIJX010000002.1|536094-542020
+# Ty1_mosaic CZA_S288c_f87+_TY1|CABIJX010000002.1|536094-542020
 # modify for each elements
 dataset="czaja";accession="CABIJX010000002.1";
 start=536095;end=542020;strand="+";
-TE="Ty1-mosaic";organism="Saccharomyces cerevisiae";strain="S288c"
+TE="Ty1_mosaic";organism="Saccharomyces cerevisiae";strain="S288c"
 if [[ ${strand} == "+" ]]; then
     esearch -db nucleotide -query ${accession} | efetch -format fasta > ${full_dir}/${accession}.fasta
     seqkit subseq -w 0 --chr ${accession} -r ${start}:${end} ${full_dir}/${accession}.fasta | sed -E "s/>${accession}.*/>${TE}/" > ${full_dir}/${TE}.fasta
@@ -218,10 +218,10 @@ element_id="f87+_TY1"
 grep "${element_id}" ${anno_dir}/${dataset}/${strain}/repeatmasker/${strain}.bed | cut -f11
 print_ltr_length # same 
 
-# Ty1p-ow yue_CBS432_f139+_TY1|CP020245.1|1300770-1306656
+# Ty1p_ow yue_CBS432_f139+_TY1|CP020245.1|1300770-1306656
 dataset="yue";accession="CP020245.1";
 start=1300771;end=1306656;strand="+";
-TE="Ty1p-ow";organism="Saccharomyces paradoxus";strain="CBS432"
+TE="Ty1p_ow";organism="Saccharomyces paradoxus";strain="CBS432"
 if [[ ${strand} == "+" ]]; then
     esearch -db nucleotide -query ${accession} | efetch -format fasta > ${full_dir}/${accession}.fasta
     seqkit subseq -w 0 --chr ${accession} -r ${start}:${end} ${full_dir}/${accession}.fasta | sed -E "s/>${accession}.*/>${TE}/" > ${full_dir}/${TE}.fasta
@@ -235,10 +235,10 @@ element_id="f139+_TY1"
 grep "${element_id}" ${anno_dir}/${dataset}/${strain}/repeatmasker/${strain}.bed | cut -f11
 print_ltr_length # same
 
-# Ty1p-nw yue_UFRJ50816_f400+_TY1|CP020300.1|115626-121510
+# Ty1p_nw yue_UFRJ50816_f400+_TY1|CP020300.1|115626-121510
 dataset="yue";accession="CP020300.1";
 start=115627;end=121510;strand="+";
-TE="Ty1p-nw";organism="Saccharomyces paradoxus";strain="UFRJ50816"
+TE="Ty1p_nw";organism="Saccharomyces paradoxus";strain="UFRJ50816"
 if [[ ${strand} == "+" ]]; then
     esearch -db nucleotide -query ${accession} | efetch -format fasta > ${full_dir}/${accession}.fasta
     seqkit subseq -w 0 --chr ${accession} -r ${start}:${end} ${full_dir}/${accession}.fasta | sed -E "s/>${accession}.*/>${TE}/" > ${full_dir}/${TE}.fasta
@@ -287,10 +287,10 @@ element_id="f95+_TY3"
 grep "${element_id}" ${anno_dir}/${dataset}/${strain}/repeatmasker/${strain}.bed | cut -f11
 print_ltr_length # same
 
-# Ty3p-ow yue_CBS432_f326+_TY3_1p|CP020250.1|169726-175086
+# Ty3p_ow yue_CBS432_f326+_TY3_1p|CP020250.1|169726-175086
 dataset="yue";accession="CP020250.1";
 start=169727;end=175086;strand="+";
-TE="Ty3p-ow";organism="Saccharomyces paradoxus";strain="CBS432"
+TE="Ty3p_ow";organism="Saccharomyces paradoxus";strain="CBS432"
 if [[ ${strand} == "+" ]]; then
     esearch -db nucleotide -query ${accession} | efetch -format fasta > ${full_dir}/${accession}.fasta
     seqkit subseq -w 0 --chr ${accession} -r ${start}:${end} ${full_dir}/${accession}.fasta | sed -E "s/>${accession}.*/>${TE}/" > ${full_dir}/${TE}.fasta
@@ -322,10 +322,10 @@ element_id="f354+_TY4"
 grep "${element_id}" ${anno_dir}/${dataset}/${strain}/repeatmasker/${strain}.bed | cut -f11
 print_ltr_length # same
 
-# Ty4p-ow yue_N44_f223-_TY4|CP020264.1|288028-294302
+# Ty4p_ow yue_N44_f223-_TY4|CP020264.1|288028-294302
 dataset="yue";accession="CP020264.1";
 start=288029;end=294302;strand="-";
-TE="Ty4p-ow";organism="Saccharomyces paradoxus";strain="N44"
+TE="Ty4p_ow";organism="Saccharomyces paradoxus";strain="N44"
 if [[ ${strand} == "+" ]]; then
     esearch -db nucleotide -query ${accession} | efetch -format fasta > ${full_dir}/${accession}.fasta
     seqkit subseq -w 0 --chr ${accession} -r ${start}:${end} ${full_dir}/${accession}.fasta | sed -E "s/>${accession}.*/>${TE}/" > ${full_dir}/${TE}.fasta
@@ -339,10 +339,10 @@ element_id="f223-_TY4"
 grep "${element_id}" ${anno_dir}/${dataset}/${strain}/repeatmasker/${strain}.bed | cut -f11
 print_ltr_length # same, repeatmasker 371,1909,3615,371?
 
-# Tsu4p-nw yue_UFRJ50816_f45-_TSU4|CP020294.1|554569-560566
+# Tsu4p_nw yue_UFRJ50816_f45-_TSU4|CP020294.1|554569-560566
 dataset="yue";accession="CP020294.1";
 start=554570;end=560566;strand="-";
-TE="Tsu4p-nw";organism="Saccharomyces paradoxus";strain="UFRJ50816"
+TE="Tsu4p_nw";organism="Saccharomyces paradoxus";strain="UFRJ50816"
 if [[ ${strand} == "+" ]]; then
     esearch -db nucleotide -query ${accession} | efetch -format fasta > ${full_dir}/${accession}.fasta
     seqkit subseq -w 0 --chr ${accession} -r ${start}:${end} ${full_dir}/${accession}.fasta | sed -E "s/>${accession}.*/>${TE}/" > ${full_dir}/${TE}.fasta
@@ -356,10 +356,10 @@ element_id="f45-_TSU4"
 grep "${element_id}" ${anno_dir}/${dataset}/${strain}/repeatmasker/${strain}.bed | cut -f11
 print_ltr_length # same
 
-# Ty5p-ow yue_CBS432_f409+_TY5|CP020252.1|406512-411888
+# Ty5p_ow yue_CBS432_f409+_TY5|CP020252.1|406512-411888
 dataset="yue";accession="CP020252.1";
 start=406513;end=411888;strand="+";
-TE="Ty5p-ow";organism="Saccharomyces paradoxus";strain="CBS432"
+TE="Ty5p_ow";organism="Saccharomyces paradoxus";strain="CBS432"
 if [[ ${strand} == "+" ]]; then
     esearch -db nucleotide -query ${accession} | efetch -format fasta > ${full_dir}/${accession}.fasta
     seqkit subseq -w 0 --chr ${accession} -r ${start}:${end} ${full_dir}/${accession}.fasta | sed -E "s/>${accession}.*/>${TE}/" > ${full_dir}/${TE}.fasta
@@ -428,13 +428,19 @@ gt gff3 -sort ${TE}.gff > ${TE}.sorted.gff
 
 # combine all seqs
 # cat ${full_dir}/TY1canonical.fasta ${full_dir}/TY1prime.fasta ${full_dir}/TY1.fasta ${full_dir}/TY1p_ow.fasta ${full_dir}/TY1p_nw.fasta ${full_dir}/TY2.fasta ${full_dir}/TY3.fasta ${full_dir}/TY3_1p.fasta ${full_dir}/TY4.fasta ${full_dir}/TY4p_ow.fasta ${full_dir}/TSU4.fasta ${full_dir}/TY5p.fasta ${full_dir}/TY5c.fasta | seqkit seq -w 0 --upper-case > ${full_dir}/ty_elements_from_genome.fasta
-cat ${full_dir}/Ty*.fasta ${full_dir}/Tsu*.fasta | seqkit seq -w 0 --upper-case > ${full_dir}/ty_elements_from_genome.fasta
+cat ${full_dir}/Ty1_canonical.fasta ${full_dir}/Ty1_mosaic.fasta ${full_dir}/Ty1_prime.fasta ${full_dir}/Ty1p_nw.fasta ${full_dir}/Ty1p_ow.fasta ${full_dir}/Ty2.fasta ${full_dir}/Ty3.fasta ${full_dir}/Ty3p_ow.fasta ${full_dir}/Ty4.fasta ${full_dir}/Ty4p_ow.fasta ${full_dir}/Tsu4p_nw.fasta ${full_dir}/Ty5.fasta ${full_dir}/Ty5p_ow.fasta | seqkit seq -w 0 --upper-case > ${full_dir}/ty_elements_from_genome.fasta
 # combine all annotations
 # gt gff3 -sort -tidy -addids -retainids -checkids ${split_dir}/TY1canonical.sorted.gff ${split_dir}/TY1prime.sorted.gff ${split_dir}/TY1.sorted.gff ${split_dir}/TY1p_ow.sorted.gff ${split_dir}/TY1p_nw.sorted.gff ${split_dir}/TY2.sorted.gff ${split_dir}/TY3.sorted.gff ${split_dir}/TY3_1p.sorted.gff ${split_dir}/TY4.sorted.gff ${split_dir}/TY4p_ow.sorted.gff ${split_dir}/TSU4.sorted.gff ${split_dir}/TY5p.sorted.gff ${split_dir}/TY5c.sorted.gff > ${split_dir}/full_length_from_genome.sorted.gff
-gt gff3 -sort -tidy -addids -retainids -checkids ${split_dir}/Ty*.sorted.gff ${split_dir}/Tsu*.sorted.gff > ${split_dir}/full_length_from_genome.sorted.gff
-gt gff3validator ${split_dir}/full_length_from_genome.sorted.gff
+gt gff3 -sort -tidy -addids -retainids -checkids ${split_dir}/Ty1_canonical.sorted.gff ${split_dir}/Ty1_mosaic.sorted.gff ${split_dir}/Ty1_prime.sorted.gff ${split_dir}/Ty1p_nw.sorted.gff ${split_dir}/Ty1p_ow.sorted.gff ${split_dir}/Ty2.sorted.gff ${split_dir}/Ty3.sorted.gff ${split_dir}/Ty3p_ow.sorted.gff ${split_dir}/Ty4.sorted.gff ${split_dir}/Ty4p_ow.sorted.gff ${split_dir}/Tsu4p_nw.sorted.gff ${split_dir}/Ty5.sorted.gff ${split_dir}/Ty5p_ow.sorted.gff > ${split_dir}/full_length_from_genome.sorted.gff
+# manually change the order of Tsu4
+gt gff3validator ${split_dir}/full_length_from_genome.sorted.gff 
 
 ### split LTR and internal
 cp /home/jc33471/jingxuan/src/python/split_cns_te_lib_yeast.py $script_dir/split_cns_te_lib_yeast.py
-python ${script_dir}/split_cns_te_lib_yeast.py $full_dir/ty_elements_from_genome.fasta $split_dir/full_length_from_genome.sorted.gff | seqkit sort --by-name -w 0 > $split_dir/split_full_from_genome.fasta
+python ${script_dir}/split_cns_te_lib_yeast.py $full_dir/ty_elements_from_genome.fasta $split_dir/full_length_from_genome.sorted.gff | seqkit seq -w 0 > $split_dir/split_full_from_genome.fasta
+
+## Check if RM format lib is compatible with RM
+module load RepeatMasker/4.0.9-p2-foss-2019b-Perl-5.30.0
+RepeatMasker -e wublast -s -pa $SLURM_NTASKS -xsmall -nolow -no_is -dir $split_dir/test_RM -lib $split_dir/split_full_from_genome.fasta /scratch/cbergman/yeast_long_read_asms_12-24-2021/garfinkel/S288c/data/polished_assembly.fasta
+module unload RepeatMasker/4.0.9-p2-foss-2019b-Perl-5.30.0
 
